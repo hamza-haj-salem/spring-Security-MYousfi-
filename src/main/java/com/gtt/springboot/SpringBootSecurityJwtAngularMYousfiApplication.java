@@ -20,7 +20,15 @@ public class SpringBootSecurityJwtAngularMYousfiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootSecurityJwtAngularMYousfiApplication.class, args);
 	}
-	
+	//**************************************
+	//**************************************
+	//**************************************
+	//CETTE APPLICATION SERA CELLE QUI VA ETRE ACCédé PAR UN USER APRES AVOIR AUTHENTIFIEE CE DERNIER 
+	//ET LUI AFFECTEE UN TOKEN
+	//L'APP QUI VA FAIRE L'AUTHETIFICATION ET LA PARTIE SECURITEE EST NOMMEE Security Service
+	//**************************************
+	//**************************************
+	//**************************************
 	@Bean
 	CommandLineRunner start(CategoryRepository categoryRepository, ProductRepository productRepository ) {
 		return args->{

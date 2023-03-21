@@ -2,6 +2,7 @@ package com.gtt.springboot.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -30,6 +31,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 												// spring ce n'est pas oblig d'utiliser les session et 
 										//dans ce cas là c'est à nous de gérer les session par jwt
 		//http.formLogin();// generer le formulaire de login
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/categories/**").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET,"/products/**").permitAll();
 		http.authorizeRequests().antMatchers("/categories/**").hasAuthority("ADMIN");
 		http.authorizeRequests().antMatchers("/products/**").hasAuthority("USER");
 		http.authorizeRequests().anyRequest().authenticated();//Tous les restes necessite une auth
